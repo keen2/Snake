@@ -51,5 +51,10 @@ namespace Snake
             else
                 y -= offset;
         }
+
+        public bool Hits(Point food)
+        {
+            return this.x == food.x && this.y == food.y;
+        }
     }
 }

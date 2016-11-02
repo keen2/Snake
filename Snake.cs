@@ -8,7 +8,7 @@ namespace Snake
 {
     class Snake : Shape
     {
-        Direction direction;
+        private Direction direction;
 
         public Snake(Point tail, int length, Direction direction)
         {
@@ -16,6 +16,7 @@ namespace Snake
 
             pointList = new List<Point>();
 
+            // create a line by moving tail's point copies
             for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
@@ -33,6 +34,19 @@ namespace Snake
             Point head = GetNextPoint();
             pointList.Add(head);
             head.Draw();
+        }
+
+        public bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.Hits(food))
+            {
+                pointList.Add(head);
+                head.Draw();
+                return true;
+            }
+            else
+                return false;
         }
 
         private Point GetNextPoint()
