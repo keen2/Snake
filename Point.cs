@@ -34,6 +34,12 @@ namespace Snake
             Console.Write(symbol);
         }
 
+        public void Clear()
+        {
+            Console.SetCursorPosition(x, y);
+            Console.Write(' ');
+        }
+
         public void Move(int offset, Direction direction)
         {
             if (direction == Direction.Left) x -= offset;
