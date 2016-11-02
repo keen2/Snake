@@ -14,20 +14,19 @@ namespace Snake
             Snake snake = new Snake(new Point(13, 11, '*'), 4, Direction.Right);
             snake.Draw();
 
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo keyInfo = Console.ReadKey();
+                    snake.SetDirection(keyInfo.Key);
+                    if (keyInfo.Key == ConsoleKey.Escape)
+                        return;
+                }
+
+                snake.Move();
+                Thread.Sleep(100);
+            }
 
             Console.ReadLine();
         }

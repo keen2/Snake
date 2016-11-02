@@ -42,10 +42,14 @@ namespace Snake
 
         public void Move(int offset, Direction direction)
         {
-            if (direction == Direction.Left) x -= offset;
-            else if (direction == Direction.Right) x += offset;
-            else if (direction == Direction.Down) y += offset;
-            else y -= offset;
+            if (direction == Direction.Left)
+                x -= offset;
+            else if (direction == Direction.Right)
+                x += offset;
+            else if (direction == Direction.Down)
+                y += offset;
+            else
+                y -= offset;
         }
     }
 }
