@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
+    enum Dir2//////////////////////////////
+    {
+        Left2,
+        Right2
+    }
     class Program
     {
         static void Main(string[] args)
@@ -15,6 +20,9 @@ namespace Snake
 
             VerticalLine line2 = new VerticalLine(8, 8, 15, '%');
             line2.Draw();
+            
+            Snake snake = new Snake(new Point(13, 11, '*'), 4, Direction.Right);
+            snake.Draw();
 
             Console.ReadLine();
         }
