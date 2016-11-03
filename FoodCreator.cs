@@ -11,19 +11,19 @@ namespace Snake
         Random rnd = new Random();
 
         private char symbol;
-        private int windowHeight;
-        private int windowWidth;
+        private int drawWidth;
+        private int drawHeight;
 
-        public FoodCreator(int windowWidth, int windowHeight, char symbol)
+        public FoodCreator(int drawWidth, int drawHeight, char symbol)
         {
-            this.windowWidth = windowWidth;
-            this.windowHeight = windowHeight;
+            this.drawWidth = drawWidth;
+            this.drawHeight = drawHeight;
             this.symbol = symbol;
         }
 
         public Point GenerateFood()
         {
-            Point newFood = new Point(rnd.Next(windowWidth), rnd.Next(windowHeight), symbol);
+            Point newFood = new Point(rnd.Next(2, drawWidth), rnd.Next(4, drawHeight), symbol);
             return newFood;
         }
     }

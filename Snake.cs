@@ -49,6 +49,15 @@ namespace Snake
                 return false;
         }
 
+        public bool HitTail()
+        {
+            Point head = pointList.Last();
+            for (int i = 0; i < pointList.Count-2; i++)
+                if (head.Hits( pointList[i] ))
+                    return true;
+            return false;
+        }
+
         private Point GetNextPoint()
         {
             // create copy of head point and move it
@@ -59,13 +68,13 @@ namespace Snake
 
         public void SetDirection(ConsoleKey key)
         {
-            if (key == ConsoleKey.RightArrow)
+            if (key == ConsoleKey.RightArrow && direction != Direction.Left)
                 direction = Direction.Right;
-            else if (key == ConsoleKey.LeftArrow)
+            else if (key == ConsoleKey.LeftArrow && direction != Direction.Right)
                 direction = Direction.Left;
-            else if (key == ConsoleKey.DownArrow)
+            else if (key == ConsoleKey.DownArrow && direction != Direction.Up)
                 direction = Direction.Down;
-            else if (key == ConsoleKey.UpArrow)
+            else if (key == ConsoleKey.UpArrow && direction != Direction.Down)
                 direction = Direction.Up;
         }
     }
