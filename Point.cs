@@ -33,6 +33,13 @@ namespace Snake
             Console.SetCursorPosition(x, y);
             Console.Write(symbol);
         }
+        public void Draw(ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.SetCursorPosition(x, y);
+            Console.Write(symbol);
+            Console.ForegroundColor = ConsoleColor.White;
+        }
 
         public void Clear()
         {

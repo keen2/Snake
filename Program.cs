@@ -30,8 +30,8 @@ namespace Snake
 
             // create initial food
             FoodCreator foodCreator = new FoodCreator(ConsoleWidth - 4, ConsoleHeight - 3, '$');
-            Point food = foodCreator.GenerateFood();
-            food.Draw();
+            Point food = foodCreator.GenerateFood(snake);
+            food.Draw(ConsoleColor.Green);
 
             int snakeSpeed = 0;
             int level = 1;
@@ -52,11 +52,12 @@ namespace Snake
                 // if snake eats a food - generate a new one, else - snake moves on
                 if (snake.Eat(food))
                 {
-                    food = foodCreator.GenerateFood();
-                    food.Draw();
+                    food = foodCreator.GenerateFood(snake);
+                    food.Draw(ConsoleColor.Green);
 
                     // increase level and speed
                     level++;
+                    Thread.Sleep(2000); // delay between levels
                     if (snakeSpeed <= 130)
                         snakeSpeed += 10;
                 }

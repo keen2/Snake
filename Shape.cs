@@ -26,7 +26,7 @@ namespace Snake
             return false;
         }
 
-        private bool Hit(Point pThis)
+        public bool Hit(Point pThis)
         {
             foreach (Point pOther in pointList)
                 if (pOther.Hits(pThis))

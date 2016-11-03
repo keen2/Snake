@@ -21,10 +21,15 @@ namespace Snake
             this.symbol = symbol;
         }
 
-        public Point GenerateFood()
+        public Point GenerateFood(Shape snake)
         {
-            Point newFood = new Point(rnd.Next(2, drawWidth), rnd.Next(4, drawHeight), symbol);
-            return newFood;
+            Point food;
+            do
+            {
+                food = new Point(rnd.Next(2, drawWidth), rnd.Next(4, drawHeight), symbol);
+            } while (snake.Hit(food));
+
+            return food;
         }
     }
 }
